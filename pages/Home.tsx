@@ -3,14 +3,27 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Zap, Cog, Award, CheckCircle } from 'lucide-react';
 
 const Home: React.FC = () => {
-  const teamNames = [
-    "Engr. Kirby A. Colinares",
-    "Sir. Dan L. Aure",
-    "Ma'am Grace Encabo"
+  // Client logos derived from the provided image
+  const clientLogos = [
+    { name: "Billion", id: 0 },
+    { name: "Power 4 All", id: 1 },
+    { name: "Netforce", id: 2 },
+    { name: "Philkor", id: 3 },
+    { name: "Boxhill", id: 4 },
+    { name: "Widus", id: 5 },
+    { name: "Enomoto", id: 6 },
+    { name: "MEC", id: 7 },
+    { name: "ASTI", id: 8 },
+    { name: "Maynilad", id: 9 },
+    { name: "Ginebra", id: 10 },
+    { name: "Dali", id: 11 },
+    { name: "PICC", id: 12 },
+    { name: "CityHomes", id: 13 },
+    { name: "Glory", id: 14 }
   ];
 
-  // Repeat the list to ensure seamless marquee effect
-  const marqueeContent = [...teamNames, ...teamNames, ...teamNames, ...teamNames];
+  // Repeat logos for seamless marquee
+  const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
     <div className="w-full pt-16">
@@ -52,29 +65,26 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Scrolling Ticker */}
-      <div className="w-full bg-black border-y border-brand/20 py-4 overflow-hidden relative z-30">
-        <div className="flex whitespace-nowrap animate-marquee">
-          {marqueeContent.map((name, idx) => (
-            <div key={idx} className="flex items-center px-8">
-              <span className="text-accent font-black text-sm md:text-base tracking-[0.15em] uppercase flex items-center">
-                <Zap size={14} className="mr-3 text-accent/60" />
-                {name}
-              </span>
-              <div className="mx-8 w-1 h-1 bg-brand-light/30 rounded-full"></div>
-            </div>
-          ))}
-          {/* Duplicate for seamless looping */}
-          {marqueeContent.map((name, idx) => (
-            <div key={`dup-${idx}`} className="flex items-center px-8">
-              <span className="text-accent font-black text-sm md:text-base tracking-[0.15em] uppercase flex items-center">
-                <Zap size={14} className="mr-3 text-accent/60" />
-                {name}
-              </span>
-              <div className="mx-8 w-1 h-1 bg-brand-light/30 rounded-full"></div>
+       {/* Client Logo Scrolling Ticker */}
+      <div className="w-full bg-brand border-y border-white/10 py-10 overflow-hidden relative z-30">
+        <div className="flex whitespace-nowrap animate-marquee items-center">
+          {marqueeLogos.map((client, idx) => (
+            <div key={idx} className="flex items-center px-12 group">
+              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 flex items-center justify-center min-w-[140px] h-[70px]">
+                <span className="text-white font-bold text-xs tracking-tighter opacity-80 group-hover:opacity-100 uppercase">
+                  {client.name}
+                </span>
+                {/* 
+                  Note: In a production environment, you would use actual image tags here:
+                  <img src={`/logos/${client.name.toLowerCase()}.png`} alt={client.name} className="h-full object-contain" /> 
+                */}
+              </div>
             </div>
           ))}
         </div>
+        {/* Subtle gradient overlays for smooth fade edges */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand to-transparent z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand to-transparent z-10"></div>
       </div>
 
       {/* Intro Section */}
