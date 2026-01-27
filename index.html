@@ -18,7 +18,8 @@
                 muted: '#f0f1ff',
               },
               secondary: '#ffffff',
-              accent: '#D5524B',
+              accent: '#A3332D',
+              navTop: '#1a1c44',
             },
             fontFamily: {
               sans: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -27,6 +28,7 @@
               'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
               'float': 'float 3s ease-in-out infinite',
               'marquee': 'marquee 25s linear infinite',
+              'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
             },
             keyframes: {
               fadeInUp: {
@@ -40,6 +42,10 @@
               marquee: {
                 '0%': { transform: 'translateX(0)' },
                 '100%': { transform: 'translateX(-50%)' },
+              },
+              pulseGlow: {
+                '0%, 100%': { opacity: '0.4', filter: 'blur(15px)' },
+                '50%': { opacity: '0.7', filter: 'blur(25px)' },
               }
             }
           }
@@ -61,6 +67,17 @@
       .marquee-container {
         display: flex;
         width: fit-content;
+      }
+      .logo-container {
+        position: relative;
+        display: inline-block;
+      }
+      .logo-glow {
+        position: absolute;
+        inset: -10px;
+        background: radial-gradient(circle, rgba(94, 95, 181, 0.4) 0%, transparent 70%);
+        z-index: -1;
+        border-radius: 50%;
       }
     </style>
   <script type="importmap">

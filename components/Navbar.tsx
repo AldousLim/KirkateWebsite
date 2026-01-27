@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, Facebook, Twitter, Linkedin, MapPin } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Facebook, MapPin } from 'lucide-react';
+import kirkateLogo from '../assets/kirkateLogo.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,10 +9,15 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 15;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrolled]);
 
   const navLinks = [
     { name: 'HOME', path: '/' },
@@ -22,49 +28,65 @@ const Navbar: React.FC = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+  
+  // CHANGE THIS TO YOUR LOGO PATH
+  const logoUrl = kirkateLogo;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500`}>
-      {/* Top Bar - Disappears on scroll */}
+    <nav className="fixed top-0 left-0 right-0 z-50 flex flex-col pointer-events-none">
+      {/* Top Bar - Dark Blue */}
       <div 
-        className={`bg-[#1a1a1a] text-white transition-all duration-500 overflow-hidden ${
-          scrolled ? 'max-h-0 opacity-0' : 'max-h-12 py-2.5 opacity-100'
+        className={`bg-navTop text-white transition-all duration-700 cubic-bezier-[0.4,0,0.2,1] pointer-events-auto overflow-hidden ${
+          scrolled 
+          ? '-translate-y-full opacity-0 pointer-events-none invisible' 
+          : 'translate-y-0 opacity-100 visible'
         }`}
+        style={{ 
+          maxHeight: scrolled ? '0px' : '45px',
+          marginTop: scrolled ? '-45px' : '0px'
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center text-[11px] font-bold tracking-widest">
-          <div className="flex items-center space-x-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-[45px] flex justify-between items-center text-[11px] font-bold tracking-widest">
+          <div className={`flex items-center space-x-6 transition-all duration-500 delay-75 ${scrolled ? 'blur-sm scale-95' : 'blur-0 scale-100'}`}>
             <div className="flex items-center space-x-2 group">
               <Phone size={12} className="text-white/60 group-hover:text-white transition-colors" />
-              <span className="hidden sm:inline text-white/80">(+63) 995 545 8948 / 954 423 0751</span>
-              <span className="sm:hidden text-white/80">995 545 8948</span>
+              <span className="hidden sm:inline text-white/90">(+63) 995 545 8948 / 954 423 0751</span>
+              <span className="sm:hidden text-white/90">995 545 8948</span>
             </div>
             <div className="hidden lg:flex items-center space-x-2 group">
               <MapPin size={12} className="text-white/60 group-hover:text-white transition-colors" />
-              <span className="text-white/80 uppercase">Cavite, Philippines</span>
+              <span className="text-white/90 uppercase">Cavite, Philippines</span>
             </div>
           </div>
           
-          <div className="flex items-center space-x-5">
-            <a href="#" className="hover:text-white/60 transition-colors"><Facebook size={14} /></a>
+          <div className={`flex items-center space-x-5 transition-all duration-500 delay-100 ${scrolled ? 'blur-sm scale-95' : 'blur-0 scale-100'}`}>
+            <a href="#" className="text-white hover:text-white/60 transition-colors"><Facebook size={14} /></a>
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className={`transition-all duration-300 ${
+      <div className={`pointer-events-auto transition-all duration-500 ease-in-out ${
         scrolled ? 'glass shadow-lg py-1' : 'bg-white py-3'
       }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0">
-              <Link to="/" className="flex items-center space-x-2">
-                <span className="text-brand text-2xl lg:text-3xl font-extrabold tracking-tighter">
-                  KIRKATE<span className="text-brand-light">.</span>
-                </span>
+              <Link to="/" className="flex items-center group">
+                <img 
+                  src={logoUrl} 
+                  alt="Company Logo" 
+                  className={`transition-all duration-500 object-contain group-hover:scale-110 drop-shadow-md ${
+                    scrolled ? 'h-10' : 'h-14'
+                  }`}
+                  onError={(e) => {
+                    // Fallback to a generic box if image is missing
+                    (e.target as HTMLImageElement).src = "https://placehold.co/200x80/3f4095/ffffff?text=LOGO";
+                  }}
+                />
               </Link>
             </div>
             
-            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-10 items-center">
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group">
@@ -92,7 +114,6 @@ const Navbar: React.FC = () => {
               ))}
             </div>
 
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -105,8 +126,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl transition-all duration-300 ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
+      <div className={`md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl transition-all duration-300 pointer-events-auto ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
         <div className="px-6 py-8 space-y-4">
           {navLinks.map((link) => (
             <Link
@@ -122,6 +142,7 @@ const Navbar: React.FC = () => {
           ))}
           <div className="pt-6 border-t border-gray-100 flex space-x-6 text-brand">
             <Facebook size={20} />
+
           </div>
         </div>
       </div>
