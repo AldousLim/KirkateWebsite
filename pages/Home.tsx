@@ -1,29 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Zap, Cog } from 'lucide-react';
-import iwasaki from '../assets/iwasaki.jpg';
-import precise from '../assets/precise.jpg';
-import pcab from '../assets/pcab.jpg';
-import meralco from '../assets/meralco.jpg';
-import bni from '../assets/BNI.jpg';
-import waines from '../assets/waines.jpg';
-import sy3 from '../assets/sy3energy.jpg';
-import ls from '../assets/LS_Industrial.jpg';
-import sycwin from '../assets/synwin2.jpg';
+import { ArrowRight, ShieldCheck, Zap, Cog, Award, CheckCircle } from 'lucide-react';
 
 const Home: React.FC = () => {
-  // 2. Data array using the imported variables
-  const partners = [
-    { name: 'IWASAKI', img: iwasaki },
-    { name: 'PRECISE', img: precise },
-    { name: 'PCAB', img: pcab },
-    { name: 'MERALCO', img: meralco },
-    { name: 'BNI', img: bni },
-    { name: 'WAINE\'S', img: waines },
-    { name: 'SY3 ENERGY', img: sy3 },
-    { name: 'LS Industrial', img: ls },
-    { name: 'SYCWIN', img: sycwin },
+  const teamNames = [
+    "Engr. Kirby A. Colinares",
+    "Sir. Dan L. Aure",
+    "Ma'am Grace Encabo"
   ];
+
+  // Repeat the list to ensure seamless marquee effect
+  const marqueeContent = [...teamNames, ...teamNames, ...teamNames, ...teamNames];
 
   return (
     <div className="w-full pt-16">
@@ -65,6 +52,31 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Team Scrolling Ticker */}
+      <div className="w-full bg-black border-y border-brand/20 py-4 overflow-hidden relative z-30">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {marqueeContent.map((name, idx) => (
+            <div key={idx} className="flex items-center px-8">
+              <span className="text-accent font-black text-sm md:text-base tracking-[0.15em] uppercase flex items-center">
+                <Zap size={14} className="mr-3 text-accent/60" />
+                {name}
+              </span>
+              <div className="mx-8 w-1 h-1 bg-brand-light/30 rounded-full"></div>
+            </div>
+          ))}
+          {/* Duplicate for seamless looping */}
+          {marqueeContent.map((name, idx) => (
+            <div key={`dup-${idx}`} className="flex items-center px-8">
+              <span className="text-accent font-black text-sm md:text-base tracking-[0.15em] uppercase flex items-center">
+                <Zap size={14} className="mr-3 text-accent/60" />
+                {name}
+              </span>
+              <div className="mx-8 w-1 h-1 bg-brand-light/30 rounded-full"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Intro Section */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
@@ -101,28 +113,46 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="py-24 bg-brand-muted/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-xl">
-              <h3 className="text-3xl font-extrabold text-brand-dark mb-4 tracking-tight">With the Partnership of:</h3>
-              <p className="text-gray-500 font-medium">We collaborate with global industry leaders and verified institutions to deliver the best quality products and services.</p>
-            </div>
-            <Link to="/products" className="text-brand font-bold flex items-center hover:underline">
-              View All Products <ArrowRight size={16} className="ml-1" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
-            {partners.map((partner, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex items-center justify-center group border border-gray-100/50 h-32">
-                <img 
-                  src={partner.img} 
-                  alt={partner.name} 
-                  className="max-h-16 w-auto object-contain transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-                />
+      {/* Why Choose Us Section - Mirrored Style */}
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
+        {/* Mirrored skewed background on the left */}
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-brand-muted opacity-30 skew-x-12 -translate-x-1/2"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+          {/* Text content now on the left side */}
+          <div className="order-2 lg:order-1 relative z-10">
+            <h4 className="text-brand font-bold text-sm tracking-widest uppercase mb-4">WHY CHOOSE US</h4>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8 leading-tight">
+              Pioneering Safety and Technical Innovation.
+            </h2>
+            <p className="text-gray-600 text-lg mb-8 leading-relaxed text-balance">
+              Our holistic approach combines deep technical expertise with a commitment to long-term reliability. We don't just supply equipment; we architect systems that power progress and ensure operational continuity for industrial leaders.
+            </p>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand">
+                  <ShieldCheck size={20} />
+                </div>
+                <span className="font-bold text-gray-800 text-sm">Unmatched Safety</span>
               </div>
-            ))}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand">
+                  <Award size={20} />
+                </div>
+                <span className="font-bold text-gray-800 text-sm">Global Standards</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image content now on the right side */}
+          <div className="order-1 lg:order-2 relative">
+            <img 
+              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" 
+              className="rounded-3xl shadow-2xl relative z-10 w-full object-cover"
+              alt="Electrical Precision Work"
+            />
+            {/* Mirrored accent box (bottom-left of the image) */}
+            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand rounded-3xl -z-0 opacity-10"></div>
           </div>
         </div>
       </section>

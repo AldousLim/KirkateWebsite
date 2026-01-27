@@ -1,9 +1,19 @@
 import React from 'react';
 import Counter from '../components/Counter';
-import { Target, Users, Award, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Target, Users, Award, Shield } from 'lucide-react';
 import cert1 from '../assets/cert1.jpg';
 import cert2 from '../assets/cert2.jpg';
 import cert3 from '../assets/cert3.jpg';
+import iwasaki from '../assets/iwasaki.jpg';
+import precise from '../assets/precise.jpg';
+import pcab from '../assets/pcab.jpg';
+import meralco from '../assets/meralco.jpg';
+import bni from '../assets/BNI.jpg';
+import waines from '../assets/waines.jpg';
+import sy3 from '../assets/sy3energy.jpg';
+import ls from '../assets/LS_Industrial.jpg';
+import sycwin from '../assets/synwin2.jpg';
 
 const About: React.FC = () => {
   // 2. DATA ARRAY FOR THE CERTIFICATES
@@ -12,6 +22,18 @@ const About: React.FC = () => {
     { img: cert1, label: "Certficate of Registration" },
     { img: cert2, label: "Contractors License" },
     { img: cert3, label: "Certficate of Registration" },
+  ];
+
+  const partners = [
+    { name: 'IWASAKI', img: iwasaki },
+    { name: 'PRECISE', img: precise },
+    { name: 'PCAB', img: pcab },
+    { name: 'MERALCO', img: meralco },
+    { name: 'BNI', img: bni },
+    { name: 'WAINE\'S', img: waines },
+    { name: 'SY3 ENERGY', img: sy3 },
+    { name: 'LS Industrial', img: ls },
+    { name: 'SYCWIN', img: sycwin },
   ];
 
   const stats = [
@@ -85,6 +107,32 @@ const About: React.FC = () => {
                   <span className="text-accent ml-2">+</span>
                 </div>
                 <div className="text-brand-light font-bold tracking-widest uppercase text-xs">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-24 bg-brand-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="max-w-xl">
+              <h3 className="text-3xl font-extrabold text-brand-dark mb-4 tracking-tight">With the Partnership of:</h3>
+              <p className="text-gray-500 font-medium">We collaborate with global industry leaders and verified institutions to deliver the best quality products and services.</p>
+            </div>
+            <Link to="/products" className="text-brand font-bold flex items-center hover:underline">
+              View All Products <ArrowRight size={16} className="ml-1" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+            {partners.map((partner, index) => (
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 flex items-center justify-center group border border-gray-100/50 h-32">
+                <img 
+                  src={partner.img} 
+                  alt={partner.name} 
+                  className="max-h-16 w-auto object-contain transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                />
               </div>
             ))}
           </div>
