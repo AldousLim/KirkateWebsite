@@ -97,8 +97,8 @@ const Footer: React.FC = () => {
                     <Phone size={18} />
                   </div>
                   <div className="flex flex-col">
-                    <a href="tel:+63209955458948" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">+632 0995-545-8948</a>
-                    <a href="tel:+63209544230751" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">+632 0954-423-0751</a>
+                    <a href="tel:+63209955458948" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">+63 945-612-8186</a>
+                    <a href="tel:+63209544230751" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">+63 977-444-1450</a>
                   </div>
                 </div>
               </li>
