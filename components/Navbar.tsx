@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
           <div className={`flex items-center space-x-6 transition-all duration-500 delay-75 ${scrolled ? 'blur-sm scale-95' : 'blur-0 scale-100'}`}>
             <div className="flex items-center space-x-2 group">
               <Phone size={12} className="text-white/60 group-hover:text-white transition-colors" />
-              <span className="hidden sm:inline text-white/90">(+63) 995 545 8948 / 954 423 0751</span>
+              <span className="hidden sm:inline text-white/90">(+63) 945 612 8186/ 977 444 1450</span>
               <span className="sm:hidden text-white/90">995 545 8948</span>
             </div>
             <div className="hidden lg:flex items-center space-x-2 group">

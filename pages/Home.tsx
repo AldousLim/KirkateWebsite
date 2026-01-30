@@ -118,7 +118,7 @@ const Home: React.FC = () => {
           <div>
             <h4 className="text-brand font-bold text-sm tracking-widest uppercase mb-4">THE KIRKATE STORY</h4>
             <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8">
-              5 Years of Unwavering Service Excellence.
+              11 Years of Unwavering Service Excellence.
             </h2>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
               Starting as a small consultancy in 2015, we've grown into a comprehensive engineering partner. Our expansion into trading, installation, and maintenance reflects our commitment to the evolving needs of the industry.

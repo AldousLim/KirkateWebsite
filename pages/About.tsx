@@ -38,7 +38,7 @@ const About: React.FC = () => {
 
   const stats = [
     { label: 'Products Offered', target: 50, icon: <Award className="text-brand" size={24} /> },
-    { label: 'Years Experience', target: 5, icon: <Users className="text-brand" size={24} /> },
+    { label: 'Years Experience', target: 11, icon: <Users className="text-brand" size={24} /> },
     { label: 'Projects Completed', target: 20, icon: <Shield className="text-brand" size={24} /> },
   ];
 
@@ -84,7 +84,7 @@ const About: React.FC = () => {
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand/20 transition-all">
                 <Target className="text-accent mb-4" size={32} />
                 <h4 className="font-bold text-brand-dark mb-2">Our Mission</h4>
-                <p className="text-sm text-gray-500">To provide top-tier engineering services that adhere to global codes of excellence.</p>
+                <p className="text-sm text-gray-500">Kirkate dedicates to providing a top-notch Professional Engineering Services, Repair & Maintenance Workd and highest quality of Material & Equipment Supplies, which adheres strictly to the latest Codes of Standards and best practices from leading companies.</p>
               </div>
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-brand/20 transition-all">
                 <Award className="text-brand mb-4" size={32} />

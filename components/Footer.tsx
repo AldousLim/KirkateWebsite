@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
             </div>
 
             <p className="text-white/50 leading-relaxed text-sm font-medium pr-8">
-              Pioneering excellence in electrical-mechanical engineering in the Philippines. Delivering innovation, precision, and reliable support for over 5 years.
+              Pioneering excellence in electrical-mechanical engineering in the Philippines. Delivering innovation, precision, and reliable support for over 11 years.
             </p>
             
             <div className="flex space-x-3">
@@ -100,8 +100,8 @@ const Footer: React.FC = () => {
                   </div>
                   <div className="flex flex-col">
                     {/* UPDATED: Phone Numbers from Navbar */}
-                    <a href="tel:+639955458948" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 995 545 8948</a>
-                    <a href="tel:+639544230751" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 954 423 0751</a>
+                    <a href="tel:+63 945 612 8186" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 995 545 8948</a>
+                    <a href="tel:+63 977 444 1450" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 954 423 0751</a>
                   </div>
                 </div>
               </li>
@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
                   <Mail size={18} />
                 </div>
                 {/* Feel free to update this email if you have a business one like info@kirkate.com */}
-                <a href="mailto:kirkateenterprise@gmail.com" className="text-white/60 font-medium hover:text-white transition-colors">kirkateenterprise@gmail.com</a>
+                <a href="mailto:kirkateenterprise@gmail.com" className="text-white/60 font-medium hover:text-white transition-colors">sales@kirkate.com</a>
               </li>
             </ul>
           </div>

@@ -11,13 +11,13 @@ const Contact: React.FC = () => {
     },
     {
       icon: <Mail className="text-white" size={20} />,
-      label: "info@kirkate.com",
-      link: "mailto:info@kirkate.com",
+      label: "sales@kirkate.com",
+      link: "mailto:sales@kirkate.com",
     },
     {
       icon: <Phone className="text-white" size={20} />,
-      label: "+632 0995-545-8948",
-      link: "tel:+63209955458948",
+      label: "(+63) 945 612 8186/ 977 444 1450",
+      link: "tel:+63945 612 8186/ 977 444 1450",
     },
   ];
 
