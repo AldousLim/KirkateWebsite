@@ -1,28 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Zap, Cog, Award, CheckCircle } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, Cog, Award } from 'lucide-react';
+
+// Client Logo Imports
+import billion from '../assets/Billion.jpg';
+import power4all from '../assets/Power4all.jpg';
+import netforce from '../assets/Netforce.png';
+import philkor from '../assets/Philkor.jpg';
+import boxhill from '../assets/Boxhill.png';
+import widus from '../assets/Widus.png';
+import enomoto from '../assets/Enomoto.png';
+import mec from '../assets/MEC.png';
+import asti from '../assets/Asti.jpg';
+import maynilad from '../assets/Maynilad.jpg';
+import ginebra from '../assets/Ginebra.png';
+import dali from '../assets/Dali.png';
+import picc from '../assets/PICC.jpg';
+import cityhomes from '../assets/CityHomes.jpeg';
+import glory from '../assets/Glory.png';
 
 const Home: React.FC = () => {
-  // Client logos derived from the provided image
   const clientLogos = [
-    { name: "Billion", id: 0 },
-    { name: "Power 4 All", id: 1 },
-    { name: "Netforce", id: 2 },
-    { name: "Philkor", id: 3 },
-    { name: "Boxhill", id: 4 },
-    { name: "Widus", id: 5 },
-    { name: "Enomoto", id: 6 },
-    { name: "MEC", id: 7 },
-    { name: "ASTI", id: 8 },
-    { name: "Maynilad", id: 9 },
-    { name: "Ginebra", id: 10 },
-    { name: "Dali", id: 11 },
-    { name: "PICC", id: 12 },
-    { name: "CityHomes", id: 13 },
-    { name: "Glory", id: 14 }
+    { name: "Billion", src: billion },
+    { name: "Power 4 All", src: power4all },
+    { name: "Netforce", src: netforce },
+    { name: "Philkor", src: philkor },
+    { name: "Boxhill", src: boxhill },
+    { name: "Widus", src: widus },
+    { name: "Enomoto", src: enomoto },
+    { name: "MEC", src: mec },
+    { name: "ASTI", src: asti },
+    { name: "Maynilad", src: maynilad },
+    { name: "Ginebra", src: ginebra },
+    { name: "Dali", src: dali },
+    { name: "PICC", src: picc },
+    { name: "CityHomes", src: cityhomes },
+    { name: "Glory", src: glory }
   ];
 
-  // Repeat logos for seamless marquee
+  // Logic: Use 3 sets of logos. 
+  // With -33.33% animation, it loops perfectly from Set 1 to Set 2.
   const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
@@ -65,26 +82,27 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-       {/* Client Logo Scrolling Ticker */}
-      <div className="w-full bg-brand border-y border-white/10 py-10 overflow-hidden relative z-30">
-        <div className="flex whitespace-nowrap animate-marquee items-center">
+      {/* FIXED Client Logo Scrolling Ticker */}
+      <div className="w-full bg-brand py-16 overflow-hidden relative z-30 border-y border-white/10">
+        {/* 'w-max' is critical here so it doesn't wrap */}
+        <div className="flex w-max animate-marquee items-center hover:[animation-play-state:paused] cursor-pointer">
           {marqueeLogos.map((client, idx) => (
-            <div key={idx} className="flex items-center px-12 group">
-              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 flex items-center justify-center min-w-[140px] h-[70px]">
-                <span className="text-white font-bold text-xs tracking-tighter opacity-80 group-hover:opacity-100 uppercase">
-                  {client.name}
-                </span>
-                {/* 
-                  Note: In a production environment, you would use actual image tags here:
-                  <img src={`/logos/${client.name.toLowerCase()}.png`} alt={client.name} className="h-full object-contain" /> 
-                */}
+            <div key={idx} className="flex items-center px-10">
+              {/* Card design matching your reference image */}
+              <div className="bg-white w-56 h-36 rounded-2xl shadow-2xl flex items-center justify-center p-6 hover:scale-110 transition-transform duration-300 ease-in-out">
+                <img 
+                  src={client.src} 
+                  alt={client.name} 
+                  className="max-h-full max-w-full object-contain" 
+                />
               </div>
             </div>
           ))}
         </div>
-        {/* Subtle gradient overlays for smooth fade edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand to-transparent z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand to-transparent z-10"></div>
+        
+        {/* Side Gradients for a soft transition */}
+        <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
       </div>
 
       {/* Intro Section */}
@@ -123,20 +141,17 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section - Mirrored Style */}
+      {/* Why Choose Us Section */}
       <section className="py-24 bg-gray-50 relative overflow-hidden">
-        {/* Mirrored skewed background on the left */}
         <div className="absolute top-0 left-0 w-1/3 h-full bg-brand-muted opacity-30 skew-x-12 -translate-x-1/2"></div>
-        
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text content now on the left side */}
           <div className="order-2 lg:order-1 relative z-10">
             <h4 className="text-brand font-bold text-sm tracking-widest uppercase mb-4">WHY CHOOSE US</h4>
             <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8 leading-tight">
               Pioneering Safety and Technical Innovation.
             </h2>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed text-balance">
-              Our holistic approach combines deep technical expertise with a commitment to long-term reliability. We don't just supply equipment; we architect systems that power progress and ensure operational continuity for industrial leaders.
+              Our holistic approach combines deep technical expertise with a commitment to long-term reliability. We don't just supply equipment; we architect systems that power progress and ensure operational continuity.
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="flex items-center space-x-3">
@@ -154,14 +169,12 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* Image content now on the right side */}
           <div className="order-1 lg:order-2 relative">
             <img 
               src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" 
               className="rounded-3xl shadow-2xl relative z-10 w-full object-cover"
               alt="Electrical Precision Work"
             />
-            {/* Mirrored accent box (bottom-left of the image) */}
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand rounded-3xl -z-0 opacity-10"></div>
           </div>
         </div>
