@@ -4,13 +4,15 @@ import { Facebook, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 import kirkateLogo from '../assets/kirkateLogo.png';
 
 const Footer: React.FC = () => {
+  const facebookUrl = "https://web.facebook.com/kirkateenterprise";
+  
   const servicesList = [
     "Service Entrance (Primary and Secondary Metering)",
     "Substation and Switchgear (Low/ Medium/ High Voltage)",
     "Electrical Installation for Residential, Commercial & Industrial Establishments",
     "Solar PV System (Net Metering & Power Purchaser Agreement)",
-    "Installation of Transformers, Wires & Cables, Generators, Capacitor Banks, Circuit Breakers & Panel Boards",
-    "Preventive Maintenance (Gen Set, Panel Boards, Transformers, etc.)",
+    "Installation of Transformers, Wires & Cables, Generators",
+    "Preventive Maintenance (Gen Set, Panel Boards, etc.)",
     "Testing and Commissioning"
   ];
 
@@ -34,7 +36,7 @@ const Footer: React.FC = () => {
                 <img 
                   src={logoUrl} 
                   alt="Company Logo" 
-                  /* ADDED: brightness-0 invert to make the logo white and visible */
+                  /* Keep brightness-0 invert for visibility on dark footer */
                   className="h-24 w-auto object-contain transition-all duration-500 group-hover:scale-110 brightness-0 invert drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://placehold.co/300x120/1a1c44/ffffff?text=LOGO";
@@ -44,19 +46,19 @@ const Footer: React.FC = () => {
             </div>
 
             <p className="text-white/50 leading-relaxed text-sm font-medium pr-8">
-              Pioneering excellence in electrical-mechanical engineering across Southeast Asia. Delivering innovation, precision, and reliable support for over half a decade.
+              Pioneering excellence in electrical-mechanical engineering in the Philippines. Delivering innovation, precision, and reliable support for over 5 years.
             </p>
             
             <div className="flex space-x-3">
-              {[Facebook].map((Icon, i) => (
-                <a 
-                  key={i} 
-                  href="#" 
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand hover:text-white transition-all duration-300 text-white/40"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
+              {/* UPDATED: Facebook Link */}
+              <a 
+                href={facebookUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand hover:text-white transition-all duration-300 text-white/40"
+              >
+                <Facebook size={18} />
+              </a>
             </div>
           </div>
 
@@ -97,8 +99,9 @@ const Footer: React.FC = () => {
                     <Phone size={18} />
                   </div>
                   <div className="flex flex-col">
-                    <a href="tel:+63209955458948" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">+63 945-612-8186</a>
-                    <a href="tel:+63209544230751" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">+63 977-444-1450</a>
+                    {/* UPDATED: Phone Numbers from Navbar */}
+                    <a href="tel:+639955458948" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 995 545 8948</a>
+                    <a href="tel:+639544230751" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 954 423 0751</a>
                   </div>
                 </div>
               </li>
@@ -106,7 +109,8 @@ const Footer: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-white mr-4 flex-shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:scale-110">
                   <Mail size={18} />
                 </div>
-                <a href="mailto:info@kirkate.com" className="text-white/60 font-medium hover:text-white transition-colors">info@kirkate.com</a>
+                {/* Feel free to update this email if you have a business one like info@kirkate.com */}
+                <a href="mailto:kirkateenterprise@gmail.com" className="text-white/60 font-medium hover:text-white transition-colors">kirkateenterprise@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -114,7 +118,7 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[11px] font-semibold uppercase tracking-widest text-white/20 space-y-4 md:space-y-0">
-          <p>© 2024 Engineering Solutions. High-Voltage Excellence.</p>
+          <p>© 2024 Kirkate Enterprise. Engineering Excellence.</p>
           <div className="flex items-center">
             <span className="mr-1">Built with Precision by</span>
             <span className="text-white/40 hover:text-accent transition-colors cursor-pointer">Wainessofttech</span>

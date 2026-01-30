@@ -8,6 +8,9 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Your Facebook URL
+  const facebookUrl = "https://web.facebook.com/kirkateenterprise";
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 15;
@@ -28,8 +31,6 @@ const Navbar: React.FC = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
-  
-  // CHANGE THIS TO YOUR LOGO PATH
   const logoUrl = kirkateLogo;
 
   return (
@@ -60,7 +61,15 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className={`flex items-center space-x-5 transition-all duration-500 delay-100 ${scrolled ? 'blur-sm scale-95' : 'blur-0 scale-100'}`}>
-            <a href="#" className="text-white hover:text-white/60 transition-colors"><Facebook size={14} /></a>
+            {/* UPDATED: Desktop Facebook Link */}
+            <a 
+              href={facebookUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-white/60 transition-colors"
+            >
+              <Facebook size={14} />
+            </a>
           </div>
         </div>
       </div>
@@ -80,7 +89,6 @@ const Navbar: React.FC = () => {
                     scrolled ? 'h-10' : 'h-14'
                   }`}
                   onError={(e) => {
-                    // Fallback to a generic box if image is missing
                     (e.target as HTMLImageElement).src = "https://placehold.co/200x80/3f4095/ffffff?text=LOGO";
                   }}
                 />
@@ -126,6 +134,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div className={`md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl transition-all duration-300 pointer-events-auto ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
         <div className="px-6 py-8 space-y-4">
           {navLinks.map((link) => (
@@ -141,8 +150,15 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
           <div className="pt-6 border-t border-gray-100 flex space-x-6 text-brand">
-            <Facebook size={20} />
-
+            {/* UPDATED: Mobile Facebook Link */}
+            <a 
+              href={facebookUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-70 transition-opacity"
+            >
+              <Facebook size={24} />
+            </a>
           </div>
         </div>
       </div>
