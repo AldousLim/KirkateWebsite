@@ -5,70 +5,98 @@ import repair1 from '../assets/repair1.jpg';
 import repair2 from '../assets/repair2.jpg';
 import installation1 from '../assets/installation1.jpg';
 import installation2 from '../assets/installation2.jpg';
+import installation8 from '../assets/installation8.jpg';
 
 const ServiceGallery: React.FC = () => {
-  const sections = [
+  // Rearchitected portfolio mapping each capability directly to a visual asset row
+  const portfolioSections = [
     {
-      id: "application",
-      title: "Application & Permitting",
-      // Keeping original placeholders as requested
-      images: [
-        "https://images.unsplash.com/photo-1454165833767-131435bb4420?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
-      ]
+      title: "Service Entrance (Primary and Secondary Metering)",
+      id: "service-entrance",
+      images: [installation2]
     },
     {
-      id: "installation",
-      title: "Electrical Installation",
-      // Updated with local assets
-      images: [installation1, installation2]
+      title: "Substation and Switchgear (Low/ Medium/ High Voltage)",
+      id: "substation-switchgear",
+      images: [installation8]
     },
     {
-      id: "management",
-      title: "Engineering Management",
-      // Updated with local assets
-      images: [engineer1, engineer2]
+      title: "Electrical Installation for Residential, Commercial & Industrial Establishments",
+      id: "electrical-installation",
+      images: [engineer1]
     },
     {
-      id: "maintenance",
-      title: "Repair & Maintenance",
-      // Updated with local assets
-      images: [repair1, repair2]
+      title: "Solar PV System (Net Metering & Power Purchaser Agreement)",
+      id: "solar-pv",
+      images: [installation1]
+    },
+    {
+      title: "Installation of Transformers, Wires & Cables, Generators",
+      id: "installation-assets",
+      images: [engineer2]
+    },
+    {
+      title: "Preventive Maintenance (Gen Set, Panel Boards, etc.)",
+      id: "preventive-maintenance",
+      images: [repair1]
+    },
+    {
+      title: "Testing and Commissioning",
+      id: "testing-commissioning",
+      images: [repair2]
     }
   ];
 
   return (
     <div className="w-full bg-white pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+        {/* Section Heading */}
         <div className="text-center mb-20">
           <h2 className="text-4xl font-black text-brand-dark mb-4 uppercase tracking-widest">Our Service Portfolio</h2>
           <div className="w-24 h-1.5 bg-brand mx-auto rounded-full"></div>
         </div>
-        
-        <div className="space-y-24">
-          {sections.map((section) => (
-            <div key={section.id} id={section.id} className="scroll-mt-32">
-              <div className="flex items-center space-x-4 mb-8">
-                <h3 className="text-2xl font-bold text-brand-dark">{section.title}</h3>
-                <div className="flex-grow h-px bg-gray-100"></div>
+
+        {/* Dynamic Gallery Stack */}
+        <div className="space-y-24 max-w-4xl mx-auto">
+          {portfolioSections.map((section) => (
+            <div key={section.id} id={section.id} className="scroll-mt-32 flex flex-col items-center">
+
+              {/* Centered Title with Balanced Dividers */}
+              <div className="flex items-center justify-center w-full mb-8 gap-4 text-center">
+                <div className="hidden sm:block flex-grow h-px bg-gray-200 max-w-[100px]"></div>
+                <h3 className="text-xl md:text-2xl font-bold text-brand-dark tracking-tight max-w-2xl">
+                  {section.title}
+                </h3>
+                <div className="hidden sm:block flex-grow h-px bg-gray-200 max-w-[100px]"></div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {section.images.map((src, idx) => (
-                  <div key={idx} className="group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-gray-50 border border-gray-100">
-                    <img 
-                      src={src} 
-                      alt={`${section.title} Project ${idx + 1}`} 
-                      className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105" 
-                    />
-                    <div className="p-6">
-                      <p className="text-xs font-bold text-brand uppercase tracking-widest">Technical Specification Execution</p>
+
+              {/* Centered Image Layout Wrapper */}
+              <div className="w-full flex justify-center">
+                <div className="w-full max-w-2xl">
+                  {section.images.map((src, idx) => (
+                    <div key={idx} className="group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-gray-50 border border-gray-100 flex flex-col items-center text-center w-full">
+                      <div className="overflow-hidden w-full">
+                        <img
+                          src={src}
+                          alt={`${section.title} Asset Visual`}
+                          className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-6 bg-white w-full flex justify-center items-center">
+                        <p className="text-xs font-bold text-brand uppercase tracking-widest leading-relaxed max-w-md">
+                          {section.title}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Zap, Cog, Award } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, Cog, Award, Users } from 'lucide-react';
 
 // Client Logo Imports
 import billion from '../assets/Billion.jpg';
@@ -38,8 +38,6 @@ const Home: React.FC = () => {
     { name: "Glory", src: glory }
   ];
 
-  // Logic: Use 3 sets of logos. 
-  // With -33.33% animation, it loops perfectly from Set 1 to Set 2.
   const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
@@ -49,25 +47,23 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-brand/50 mix-blend-multiply z-10"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-brand via-brand/60 to-transparent z-10"></div>
-          <img 
-            src="https://images.unsplash.com/photo-1545439625-662706c9a304?auto=format&fit=crop&q=80&w=2000" 
-            alt="Electrical Substation" 
+          <img
+            src="https://images.unsplash.com/photo-1545439625-662706c9a304?auto=format&fit=crop&q=80&w=2000"
+            alt="Electrical Substation"
             className="w-full h-full object-cover"
           />
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full">
-          <div className="max-w-3xl animate-fade-in-up">
-            <span className="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase mb-6 border border-white/20">
-              Leading the Electrical Future
-            </span>
-            <h1 className="text-white text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 drop-shadow-sm">
-              YOUR RELIABLE <br/>
-              <span className="text-white">ENGINEERING</span> <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">ONE-STOP SHOP.</span>
+          <div className="max-w-4xl animate-fade-in-up">
+            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-8 drop-shadow-sm whitespace-nowrap">
+              YOUR ELECTRICAL - MECHANICAL
             </h1>
+            <h2 className="text-white text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 drop-shadow-sm">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">ONE-STOP SHOP.</span>
+            </h2>
             <p className="text-white/80 text-lg md:text-xl max-w-xl mb-10 font-medium">
-              Providing cutting-edge electrical-mechanical solutions for over 5 years. Quality, innovation, and client success at our core.
+              We are all but resources that ought to be consumed by others.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/services" className="bg-white text-brand px-10 py-4 rounded-full font-bold text-sm tracking-widest flex items-center justify-center hover:bg-brand-muted transition-all group shadow-xl">
@@ -84,98 +80,122 @@ const Home: React.FC = () => {
 
       {/* FIXED Client Logo Scrolling Ticker */}
       <div className="w-full bg-brand py-16 overflow-hidden relative z-30 border-y border-white/10">
-        {/* 'w-max' is critical here so it doesn't wrap */}
+
+        {/* FIXED: Centered "OUR CLIENTS" section header with stylish layout */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 text-center flex flex-col items-center">
+          <h4 className="text-white/80 font-extrabold text-3xl tracking-widest uppercase relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-[2px] after:bg-white/40">
+            OUR CLIENTS
+          </h4>
+        </div>
+
         <div className="flex w-max animate-marquee items-center hover:[animation-play-state:paused] cursor-pointer">
           {marqueeLogos.map((client, idx) => (
             <div key={idx} className="flex items-center px-10">
-              {/* Card design matching your reference image */}
-              <div className="bg-white w-56 h-36 rounded-2xl shadow-2xl flex items-center justify-center p-6 hover:scale-110 transition-transform duration-300 ease-in-out">
-                <img 
-                  src={client.src} 
-                  alt={client.name} 
-                  className="max-h-full max-w-full object-contain" 
+              <div className="bg-white  w-56 h-36 rounded-2xl shadow-2xl flex items-center justify-center p-6 hover:scale-110 transition-transform duration-300 ease-in-out">
+                <img
+                  src={client.src}
+                  alt={client.name}
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
             </div>
           ))}
         </div>
-        
-        {/* Side Gradients for a soft transition */}
+
         <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
       </div>
 
       {/* Intro Section */}
       <section className="py-24 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=800" 
-              className="rounded-3xl shadow-2xl relative z-10"
-              alt="Electrical Engineer"
-            />
-          </div>
-          <div>
-            <h4 className="text-brand font-bold text-sm tracking-widest uppercase mb-4">THE KIRKATE STORY</h4>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8">
-              11 Years of Unwavering Service Excellence.
+        {/* FIXED: Balanced widths, centered text alignment parent */}
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center gap-14">
+
+          {/* Top Content Row */}
+          <div className="w-full flex flex-col items-center">
+            {/* FIXED: Upgraded header to a large, clear prominent statement */}
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8 leading-tight">
+              Our History
             </h2>
-            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Starting as a small consultancy in 2015, we've grown into a comprehensive engineering partner. Our expansion into trading, installation, and maintenance reflects our commitment to the evolving needs of the industry.
+            {/* FIXED: Set to text-justify, with neat desktop line wrapping adjustments */}
+            <p className="text-gray-600 text-lg mb-10 leading-relaxed text-justify md:text-center-last">
+              Founded in 2015 as a small consultancy firm, we have steadily evolved into a trusted full-service engineering partner. What began with technical expertise and client-focused solutions has expanded into comprehensive trading, installation, and maintenance services. Allowing us to better support the growing and changing demands of the industry. Today, we remain committed to delivering reliable, innovative, and high-quality engineering solutions built on experience, integrity, and long-term partnerships.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+
+            {/* FIXED: Centered the feature highlights row */}
+            <div className="flex flex-wrap justify-center gap-8 w-full max-w-md">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand">
+                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand shrink-0">
                   <Zap size={20} />
                 </div>
-                <span className="font-bold text-gray-800 text-sm">Efficient Solutions</span>
+                <span className="font-bold text-gray-800 text-sm tracking-wide">Efficient Solutions</span>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand">
+                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand shrink-0">
                   <Cog size={20} />
                 </div>
-                <span className="font-bold text-gray-800 text-sm">Expert Engineering</span>
+                <span className="font-bold text-gray-800 text-sm tracking-wide">Expert Engineering</span>
               </div>
             </div>
           </div>
+
+          {/* Bottom Full-Width Landscape Image Row */}
+          <div className="w-full">
+            <img
+              src="../assets/History.png"
+              className="w-full h-auto max-h-[550px] object-cover rounded-3xl shadow-2xl border border-gray-100"
+              alt="Our History Landscape"
+            />
+          </div>
+
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-1/3 h-full bg-brand-muted opacity-30 skew-x-12 -translate-x-1/2"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative z-10">
-            <h4 className="text-brand font-bold text-sm tracking-widest uppercase mb-4">WHY CHOOSE US</h4>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8 leading-tight">
-              Pioneering Safety and Technical Innovation.
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <div className="max-w-3xl mx-auto px-6 text-center flex flex-col items-center">
+
+          {/* Main Title Heading Section */}
+          <div className="mb-16 flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark tracking-wide uppercase relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-[2px] after:bg-gray-400">
+              WHY CHOOSE US?
             </h2>
-            <p className="text-gray-600 text-lg mb-8 leading-relaxed text-balance">
-              Our holistic approach combines deep technical expertise with a commitment to long-term reliability. We don't just supply equipment; we architect systems that power progress and ensure operational continuity.
-            </p>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand">
-                  <ShieldCheck size={20} />
-                </div>
-                <span className="font-bold text-gray-800 text-sm">Unmatched Safety</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand">
-                  <Award size={20} />
-                </div>
-                <span className="font-bold text-gray-800 text-sm">Global Standards</span>
-              </div>
-            </div>
           </div>
 
-          <div className="order-1 lg:order-2 relative">
-            <img 
-              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" 
-              className="rounded-3xl shadow-2xl relative z-10 w-full object-cover"
-              alt="Electrical Precision Work"
-            />
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand rounded-3xl -z-0 opacity-10"></div>
+          {/* Vertical Layout Features Stack */}
+          <div className="flex flex-col items-center gap-16 w-full max-w-xl">
+
+            {/* Feature 1: Credibility and Services */}
+            <div className="flex flex-col items-center group">
+              <div className="w-24 h-24 bg-white rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-brand-dark mb-5 group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                <Users size={44} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl md:text-2xl font-extrabold text-gray-800 tracking-wide max-w-sm leading-snug">
+                Credibility and<br />Top Quality Services
+              </h3>
+            </div>
+
+            {/* Feature 2: Guaranteed Products */}
+            <div className="flex flex-col items-center group">
+              <div className="w-24 h-24 bg-white rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-brand-dark mb-5 group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                <ShieldCheck size={44} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl md:text-2xl font-extrabold text-gray-800 tracking-wide max-w-sm leading-snug">
+                Guaranteed Products and<br />Trusted Suppliers
+              </h3>
+            </div>
+
+            {/* Feature 3: After-Sales Maintenance */}
+            <div className="flex flex-col items-center group">
+              <div className="w-24 h-24 bg-white rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-brand-dark mb-5 group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                <Cog size={44} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl md:text-2xl font-extrabold text-gray-800 tracking-wide max-w-md leading-snug">
+                After-Sales Maintenance and<br />Warranties
+              </h3>
+            </div>
+
           </div>
         </div>
       </section>

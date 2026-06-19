@@ -64,12 +64,17 @@ const Services: React.FC = () => {
           <div className="animate-fade-in-up">
             <h4 className="text-brand font-bold text-xs tracking-widest uppercase mb-4">OUR EXPERTISE</h4>
             <h2 className="text-5xl md:text-6xl font-black text-brand-dark mb-10 leading-tight">
-              Optimized <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">Engineering</span> Solutions.
+              Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">Engineering</span> Solutions.
             </h2>
+            {/* FIXED: Formatted into 2 cleanly separated, fully justified paragraphs */}
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
-              <p>
-                We provide a holistic package from planning to maintenance. Our combined team experience brings project management excellence and years of technical expertise.
+              <p className="text-justify">
+                Kirkate is a trusted provider of comprehensive electrical engineering and contracting solutions, delivering technical excellence across commercial, industrial, and infrastructure projects. With extensive expertise in electrical system design, power distribution, supply and trading of electrical materials, installation, testing and commissioning, preventive maintenance, and system rehabilitation, we provide end-to-end solutions tailored to the highest industry standards.
               </p>
+              <p className="text-justify">
+                Driven by engineering precision, operational efficiency, and uncompromising safety practices, we are committed to executing every project with superior workmanship, reliability, and technical integrity. Our team combines industry knowledge with practical field experience to deliver innovative and sustainable electrical solutions that ensure optimal performance, long-term dependability, and client satisfaction.
+              </p>
+
               <div className="flex space-x-4 pt-4">
                 <div className="flex flex-col">
                   <span className="text-2xl font-black text-brand-dark">100%</span>
@@ -100,8 +105,8 @@ const Services: React.FC = () => {
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-             <h2 className="text-4xl font-extrabold text-brand-dark mb-4">Industry Focused Products</h2>
-             <p className="text-gray-500 max-w-2xl mx-auto">We provide tailored solutions for power plants, industrial parks, and commercial skyscrapers.</p>
+            <h2 className="text-4xl font-extrabold text-brand-dark mb-4">Industry Focused Products</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">We provide tailored solutions for power plants, industrial parks, and commercial skyscrapers.</p>
           </div>
 
           {/* Featured Visuals for Services */}
@@ -116,8 +121,8 @@ const Services: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {industryProducts.map((p, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 id={p.id}
                 className="group relative bg-white p-10 rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full scroll-mt-24"
               >
@@ -138,7 +143,7 @@ const Services: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <Link 
+                <Link
                   to={`/services/gallery#${p.galleryId}`}
                   className="flex items-center text-brand font-bold text-xs uppercase tracking-widest mt-auto group-hover:translate-x-2 transition-transform"
                 >

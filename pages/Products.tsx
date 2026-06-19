@@ -8,7 +8,7 @@ import pipes from '../assets/pipes.png';
 import elecBox from '../assets/elec_box.png';
 import fittings from '../assets/fittings.png';
 import led from '../assets/led.png';
-import wiring from '../assets/sycwinDo.png'; 
+import wiring from '../assets/sycwinDo.png';
 
 const Products: React.FC = () => {
   const products = [
@@ -37,9 +37,9 @@ const Products: React.FC = () => {
             <div key={index} className="group cursor-pointer">
               {/* Product Card Container with Pop-up Effect */}
               <div className="relative aspect-square overflow-hidden rounded-3xl bg-gray-50 border border-gray-100 mb-6 transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(63,64,149,0.15)] group-hover:-translate-y-2">
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
+                <img
+                  src={item.image}
+                  alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Subtle overlay */}
