@@ -18,6 +18,7 @@ import dali from '../assets/Dali.png';
 import picc from '../assets/PICC.jpg';
 import cityhomes from '../assets/CityHomes.jpeg';
 import glory from '../assets/Glory.png';
+import history from '../assets/History.png';
 
 const Home: React.FC = () => {
   const clientLogos = [
@@ -49,15 +50,16 @@ const Home: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-brand via-brand/60 to-transparent z-10"></div>
           <img
             src="https://images.unsplash.com/photo-1545439625-662706c9a304?auto=format&fit=crop&q=80&w=2000"
-            alt="Electrical Substation"
+            alt=""
             className="w-full h-full object-cover"
           />
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full">
           <div className="max-w-4xl animate-fade-in-up">
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-8 drop-shadow-sm whitespace-nowrap">
-              YOUR ELECTRICAL - MECHANICAL
+            {/* FIXED: Removed whitespace-nowrap and forced break line on mobile layout */}
+            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-8 drop-shadow-sm">
+              YOUR ELECTRICAL <span className="block sm:inline">- MECHANICAL</span>
             </h1>
             <h2 className="text-white text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 drop-shadow-sm">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">ONE-STOP SHOP.</span>
@@ -81,7 +83,7 @@ const Home: React.FC = () => {
       {/* FIXED Client Logo Scrolling Ticker */}
       <div className="w-full bg-brand py-16 overflow-hidden relative z-30 border-y border-white/10">
 
-        {/* FIXED: Centered "OUR CLIENTS" section header with stylish layout */}
+        {/* Centered "OUR CLIENTS" section header with stylish layout */}
         <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 text-center flex flex-col items-center">
           <h4 className="text-white/80 font-extrabold text-3xl tracking-widest uppercase relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-[2px] after:bg-white/40">
             OUR CLIENTS
@@ -91,7 +93,7 @@ const Home: React.FC = () => {
         <div className="flex w-max animate-marquee items-center hover:[animation-play-state:paused] cursor-pointer">
           {marqueeLogos.map((client, idx) => (
             <div key={idx} className="flex items-center px-10">
-              <div className="bg-white  w-56 h-36 rounded-2xl shadow-2xl flex items-center justify-center p-6 hover:scale-110 transition-transform duration-300 ease-in-out">
+              <div className="bg-white w-56 h-36 rounded-2xl shadow-2xl flex items-center justify-center p-6 hover:scale-110 transition-transform duration-300 ease-in-out">
                 <img
                   src={client.src}
                   alt={client.name}
@@ -102,47 +104,32 @@ const Home: React.FC = () => {
           ))}
         </div>
 
-        <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
+        {/* FIXED: hidden sm:block added so background gradients do not block elements on small screens */}
+        <div className="hidden sm:block absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
+        <div className="hidden sm:block absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-brand via-brand/80 to-transparent z-10 pointer-events-none"></div>
       </div>
 
       {/* Intro Section */}
       <section className="py-24 bg-white relative overflow-hidden">
-        {/* FIXED: Balanced widths, centered text alignment parent */}
         <div className="max-w-4xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center gap-14">
 
           {/* Top Content Row */}
           <div className="w-full flex flex-col items-center">
-            {/* FIXED: Upgraded header to a large, clear prominent statement */}
             <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8 leading-tight">
               Our History
             </h2>
-            {/* FIXED: Set to text-justify, with neat desktop line wrapping adjustments */}
             <p className="text-gray-600 text-lg mb-10 leading-relaxed text-justify md:text-center-last">
               Founded in 2015 as a small consultancy firm, we have steadily evolved into a trusted full-service engineering partner. What began with technical expertise and client-focused solutions has expanded into comprehensive trading, installation, and maintenance services. Allowing us to better support the growing and changing demands of the industry. Today, we remain committed to delivering reliable, innovative, and high-quality engineering solutions built on experience, integrity, and long-term partnerships.
             </p>
 
-            {/* FIXED: Centered the feature highlights row */}
-            <div className="flex flex-wrap justify-center gap-8 w-full max-w-md">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand shrink-0">
-                  <Zap size={20} />
-                </div>
-                <span className="font-bold text-gray-800 text-sm tracking-wide">Efficient Solutions</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-muted rounded-lg flex items-center justify-center text-brand shrink-0">
-                  <Cog size={20} />
-                </div>
-                <span className="font-bold text-gray-800 text-sm tracking-wide">Expert Engineering</span>
-              </div>
-            </div>
+            {/* Centered the feature highlights row */}
+
           </div>
 
           {/* Bottom Full-Width Landscape Image Row */}
           <div className="w-full">
             <img
-              src="../assets/History.png"
+              src={history}
               className="w-full h-auto max-h-[550px] object-cover rounded-3xl shadow-2xl border border-gray-100"
               alt="Our History Landscape"
             />
@@ -151,7 +138,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       {/* Why Choose Us Section */}
       <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 text-center flex flex-col items-center">

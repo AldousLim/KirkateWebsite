@@ -60,22 +60,21 @@ const Services: React.FC = () => {
     <div className="w-full pt-16">
       {/* Hero Section with engineer1 and installation1 */}
       <section className="bg-brand-muted/40 py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="animate-fade-in-up">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="animate-fade-in-up text-center lg:text-left">
             <h4 className="text-brand font-bold text-xs tracking-widest uppercase mb-4">OUR EXPERTISE</h4>
-            <h2 className="text-5xl md:text-6xl font-black text-brand-dark mb-10 leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-dark mb-8 leading-tight">
               Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">Engineering</span> Solutions.
             </h2>
             {/* FIXED: Formatted into 2 cleanly separated, fully justified paragraphs */}
-            <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
-              <p className="text-justify">
+            <div className="space-y-6 text-gray-600 leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
+              <p className="text-left md:text-justify">
                 Kirkate is a trusted provider of comprehensive electrical engineering and contracting solutions, delivering technical excellence across commercial, industrial, and infrastructure projects. With extensive expertise in electrical system design, power distribution, supply and trading of electrical materials, installation, testing and commissioning, preventive maintenance, and system rehabilitation, we provide end-to-end solutions tailored to the highest industry standards.
               </p>
-              <p className="text-justify">
+              <p className="text-left md:text-justify">
                 Driven by engineering precision, operational efficiency, and uncompromising safety practices, we are committed to executing every project with superior workmanship, reliability, and technical integrity. Our team combines industry knowledge with practical field experience to deliver innovative and sustainable electrical solutions that ensure optimal performance, long-term dependability, and client satisfaction.
               </p>
-
-              <div className="flex space-x-4 pt-4">
+              <div className="flex justify-center lg:justify-start space-x-4 pt-4">
                 <div className="flex flex-col">
                   <span className="text-2xl font-black text-brand-dark">100%</span>
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Efficiency</span>
@@ -88,7 +87,7 @@ const Services: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <div className="flex gap-6 items-end">
               <div className="w-1/2 aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl animate-float">
                 <img src={engineer1} className="w-full h-full object-cover" alt="Engineer" />
