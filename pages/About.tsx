@@ -52,16 +52,20 @@ const About: React.FC = () => {
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-          {/* Side-by-Side Clean 2-Column Box Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+          {/* 2-Column Grid with Full-Width Bottom Span */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
 
             {/* Left Box: Mission */}
             <div className="bg-white p-10 rounded-3xl shadow-xl border border-gray-100 flex flex-col hover:border-brand/20 transition-all duration-300">
               <h3 className="text-3xl font-extrabold text-brand-dark leading-tight mb-6">
-                Our Mission
+                Mission
               </h3>
               <p className="text-gray-600 text-lg leading-relaxed text-justify">
-                Kirkate dedicates to providing a top-notch Professional Engineering Services, Repair & Maintenance Workd and highest quality of Material & Equipment Supplies, which adheres strictly to the latest Codes of Standards and best practices from leading companies.
+                Dedicates in providing top-notch Professional Engineering Services, Repair and Maintenance Works and highest
+                quality of Material & Equipment Supplies, which adheres strictly to the latest Codes of Standards and best
+                practices from leading companies. Further, we strive for excellence and exert an unwavering effort for
+                innovation in all areas of our business, systems, procedure, policies and practices - to ensure the best
+                quality and compliance with our legal obligations.
               </p>
             </div>
 
@@ -71,7 +75,20 @@ const About: React.FC = () => {
                 Vision
               </h3>
               <p className="text-gray-600 text-lg leading-relaxed text-justify">
-                We believe in providing more than just supplies; we provide peace of mind. Our team succeeds by understanding the pulse of the industry.
+                To be one of the leading material-sourcing Company, Manufacturer, Management & Engineering Services.
+                <br /><br />
+                To make the best electrical products and bring the best engineering services, Repair and Maintenance,
+                Technology Provider, and Research & Development Centre in the nation and South-East Asia.
+              </p>
+            </div>
+
+            {/* Full-Width Span: Principle */}
+            <div className="md:col-span-2 bg-white p-10 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center text-center hover:border-brand/20 transition-all duration-300">
+              <h3 className="text-3xl font-extrabold text-brand-dark leading-tight mb-4">
+                Principle
+              </h3>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-2xl">
+                We are all but resources that ought to be consumed by others.
               </p>
             </div>
 

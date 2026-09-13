@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowUpRight, Zap, Settings, Wrench } from 'lucide-react';
-import engineer1 from '../assets/engineer1.jpg';
-import engineer2 from '../assets/engineer2.jpg';
-import repair1 from '../assets/repair1.jpg';
+import engineer1 from '../assets/installation11.jpg';
+import engineer2 from '../assets/engineer5.jpg';
+import repair1 from '../assets/repair3.jpg';
 import repair2 from '../assets/repair2.jpg';
-import installation1 from '../assets/installation1.jpg';
+import installation1 from '../assets/installation10.jpg';
 import installation2 from '../assets/installation2.jpg';
 
 const Services: React.FC = () => {
@@ -15,19 +15,24 @@ const Services: React.FC = () => {
       galleryId: "application",
       title: "Application & Permitting",
       icon: <CheckCircle2 className="text-accent" />,
-      description: "Professional assistance with government agencies and utility providers to ensure your project stays compliant.",
-      bullets: ["GAA Compliance", "Utility Hookup Coordination", "Safety Permits"],
+      description: "Expert assistance with regulatory applications, permits, and utility coordination to ensure your electrical projects meet all required standards and compliance requirements.",
+      bullets: [
+        "Meralco Application and Processing",
+        "Electrical Permit Processing",
+        "Government & Regulatory Compliance",
+        "Project Documentation & Accreditation"
+      ],
     },
     {
       id: "electrical-installation",
       galleryId: "installation",
       title: "Electrical Installation",
       icon: <Zap className="text-accent" />,
-      description: "Construction of world-class electrical facilities for varied industrial applications.",
+      description: "Professional electrical construction and installation services for industrial, commercial, and power-related applications, delivered with quality, safety, and reliability.",
       bullets: [
-        "Primary/Secondary Metering",
-        "Substation Management",
-        "Commercial Wiring"
+        "Primary & Secondary Electrical Systems",
+        "Power Distribution & Switchgear Installation",
+        "Transformer & Capacitor Bank Installation"
       ],
     },
     {
@@ -35,11 +40,12 @@ const Services: React.FC = () => {
       galleryId: "management",
       title: "Engineering Management",
       icon: <Settings className="text-accent" />,
-      description: "End-to-end consultancy from planning to commissioning, allowing you to focus on your operations.",
+      description: "End-to-end engineering and project management, from design and planning through implementation, testing, and commissioning.",
       bullets: [
-        "Design & Analysis",
-        "Power Factor Audits",
-        "Predictive Maintenance"
+        "Electrical System Design & Engineering",
+        "Project Planning & Cost Estimation",
+        "Construction & Technical Supervision",
+        "Testing & Commissioning"
       ],
     },
     {
@@ -47,11 +53,12 @@ const Services: React.FC = () => {
       galleryId: "maintenance",
       title: "Repair & Maintenance",
       icon: <Wrench className="text-accent" />,
-      description: "Specialized rotating machine solutions for generators and high-voltage motors.",
+      description: "Comprehensive electrical repair and maintenance solutions designed to ensure the reliability, efficiency, and long-term performance of generators, motors, and other critical electrical equipment.",
       bullets: [
-        "Turbo Generator Outages",
-        "MV/HV Motor Rewinding",
-        "Vibration Analysis"
+        "Generator Repair & Maintenance",
+        "Motor Inspection & Servicing",
+        "Preventive & Corrective Maintenance",
+        "Electrical Troubleshooting & Diagnostics"
       ],
     },
   ];
@@ -66,7 +73,6 @@ const Services: React.FC = () => {
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-dark mb-8 leading-tight">
               Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">Engineering</span> Solutions.
             </h2>
-            {/* FIXED: Formatted into 2 cleanly separated, fully justified paragraphs */}
             <div className="space-y-6 text-gray-600 leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
               <p className="text-left md:text-justify">
                 Kirkate is a trusted provider of comprehensive electrical engineering and contracting solutions, delivering technical excellence across commercial, industrial, and infrastructure projects. With extensive expertise in electrical system design, power distribution, supply and trading of electrical materials, installation, testing and commissioning, preventive maintenance, and system rehabilitation, we provide end-to-end solutions tailored to the highest industry standards.
@@ -137,17 +143,17 @@ const Services: React.FC = () => {
                 <ul className="space-y-3 mb-10 flex-grow">
                   {p.bullets.map((b, bIdx) => (
                     <li key={bIdx} className="flex items-center text-xs font-bold text-gray-700">
-                      <CheckCircle2 size={14} className="text-brand mr-2" />
-                      {b}
+                      <CheckCircle2 size={14} className="text-brand mr-2 flex-shrink-0" />
+                      <span>{b}</span>
                     </li>
                   ))}
                 </ul>
-                <Link
+                {/* <Link
                   to={`/services/gallery#${p.galleryId}`}
                   className="flex items-center text-brand font-bold text-xs uppercase tracking-widest mt-auto group-hover:translate-x-2 transition-transform"
                 >
                   Learn More <ArrowUpRight size={16} className="ml-1" />
-                </Link>
+                </Link> */}
               </div>
             ))}
           </div>

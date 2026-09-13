@@ -6,6 +6,7 @@ import repair2 from '../assets/repair2.jpg';
 import installation1 from '../assets/installation1.jpg';
 import installation2 from '../assets/installation2.jpg';
 import installation8 from '../assets/installation8.jpg';
+import ev1 from '../assets/ev1.jpg';
 
 const ServiceGallery: React.FC = () => {
   // Rearchitected portfolio mapping each capability directly to a visual asset row
@@ -44,7 +45,12 @@ const ServiceGallery: React.FC = () => {
       title: "Testing and Commissioning",
       id: "testing-commissioning",
       images: [repair2]
-    }
+    },
+    {
+      title: "EV Charger Supplies and Installation",
+      id: "ev-charger-installation",
+      images: [ev1]
+    },
   ];
 
   return (
