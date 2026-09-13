@@ -5,7 +5,7 @@ import kirkateLogo from '../assets/kirkateLogo.png';
 
 const Footer: React.FC = () => {
   const facebookUrl = "https://web.facebook.com/kirkateenterprise";
-  
+
   const servicesList = [
     "Service Entrance (Primary and Secondary Metering)",
     "Substation and Switchgear (Low/ Medium/ High Voltage)",
@@ -22,20 +22,20 @@ const Footer: React.FC = () => {
     <footer className="bg-brand-dark text-white pt-24 pb-12 overflow-hidden relative border-t border-white/5">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-light/5 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none"></div>
-      
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-16 mb-24">
-          
+
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-4 space-y-10">
             <div className="relative group inline-block">
               {/* Glow effect */}
               <div className="absolute -inset-8 bg-brand-light/10 rounded-full blur-3xl opacity-40 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-glow"></div>
-              
+
               <Link to="/" className="relative block">
-                <img 
-                  src={logoUrl} 
-                  alt="Company Logo" 
+                <img
+                  src={logoUrl}
+                  alt="Company Logo"
                   /* Keep brightness-0 invert for visibility on dark footer */
                   className="h-24 w-auto object-contain transition-all duration-500 group-hover:scale-110 brightness-0 invert drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]"
                   onError={(e) => {
@@ -48,12 +48,12 @@ const Footer: React.FC = () => {
             <p className="text-white/50 leading-relaxed text-sm font-medium pr-8">
               Pioneering excellence in electrical-mechanical engineering in the Philippines. Delivering innovation, precision, and reliable support for over 11 years.
             </p>
-            
+
             <div className="flex space-x-3">
               {/* UPDATED: Facebook Link */}
-              <a 
-                href={facebookUrl} 
-                target="_blank" 
+              <a
+                href={facebookUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand hover:text-white transition-all duration-300 text-white/40"
               >
@@ -119,9 +119,18 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[11px] font-semibold uppercase tracking-widest text-white/20 space-y-4 md:space-y-0">
           <p>© 2024 Kirkate Enterprise. Engineering Excellence.</p>
-          <div className="flex items-center">
-            <span className="mr-1">Built with Precision by</span>
-            <span className="text-white/40 hover:text-accent transition-colors cursor-pointer">Wainessofttech</span>
+
+          {/* Grouped Credits Container */}
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center">
+              <span className="mr-1">Built by</span>
+              <span className="text-white/40 hover:text-accent transition-colors cursor-pointer">Filbyte</span>
+            </div>
+            <span className="text-white/10">•</span>
+            <div className="flex items-center">
+              <span className="mr-1">Powered by</span>
+              <span className="text-white/40 hover:text-accent transition-colors cursor-pointer">Wainessofttech</span>
+            </div>
           </div>
         </div>
       </div>
