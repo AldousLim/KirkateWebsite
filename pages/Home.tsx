@@ -19,6 +19,8 @@ import picc from '../assets/PICC.jpg';
 import cityhomes from '../assets/CityHomes.jpeg';
 import glory from '../assets/Glory.png';
 import history from '../assets/History.png';
+import hero from '../assets/hero.png';
+import hero2 from '../assets/installation1.jpg';
 
 const Home: React.FC = () => {
   const clientLogos = [
@@ -46,15 +48,28 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-brand/50 mix-blend-multiply z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-brand via-brand/60 to-transparent z-10"></div>
-          <img
-            src="https://images.unsplash.com/photo-1545439625-662706c9a304?auto=format&fit=crop&q=80&w=2000"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
+          {/* Your original full-screen overlays */}
+          <div className="absolute inset-0 bg-brand/60 mix-blend-multiply z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-brand via-brand/80 to-transparent z-10"></div>
 
+          {/* Left portrait image (hero2) - full width for smooth transition */}
+          <div className="absolute top-0 left-0 w-full h-full">
+            <img
+              src={hero2}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Right portrait image (hero) */}
+          <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full">
+            <img
+              src={hero}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full">
           <div className="max-w-4xl animate-fade-in-up">
             {/* FIXED: Removed whitespace-nowrap and forced break line on mobile layout */}
