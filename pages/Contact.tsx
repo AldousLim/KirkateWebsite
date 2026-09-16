@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Phone, PhoneCall } from 'lucide-react';
+import { MapPin, Mail, Phone, Smartphone } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const contactDetails = [
@@ -14,21 +14,21 @@ const Contact: React.FC = () => {
       link: "mailto:sales@kirkate.com",
     },
     {
-      icon: <PhoneCall className="text-white" size={20} />,
+      icon: <Phone className="text-white" size={20} />,
       label: ["(046) 509-5368"],
-      link: "tel:+63465095368",
+      link: "tel:046509-5368",
     },
     {
-      icon: <Phone className="text-white" size={20} />,
+      icon: <Smartphone className="text-white" size={20} />,
       label: [
-        "0977 444 1450",
-        "0954 423 0751",
-        "0992 062 8955"
+        "(+63) 945 612 8186",
+        "(+63) 945 612 8190",
+        "(+63) 977 444 1450"
       ],
       links: [
-        "tel:+639774441450",
-        "tel:+639544230751",
-        "tel:+639920628955"
+        "tel:+639456128186",
+        "tel:+639456128190",
+        "tel:+639774441450"
       ],
     },
   ];

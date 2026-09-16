@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
+import { Facebook, MapPin, Phone, Mail, ChevronRight, Smartphone } from 'lucide-react';
 import kirkateLogo from '../assets/kirkateLogo.png';
 
 const Footer: React.FC = () => {
@@ -96,12 +96,27 @@ const Footer: React.FC = () => {
               <li className="flex flex-col space-y-4">
                 <div className="flex items-center group">
                   <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-white mr-4 flex-shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:-rotate-12">
+                    <Smartphone size={18} />
+                  </div>
+                  <div className="flex flex-col">
+                    {/* UPDATED: Phone Numbers from Navbar */}
+                    <a href="tel:+639456128186" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 945 612 8186</a>
+                    <a href="tel:+639456128190" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 945 612 8190</a>
+                    <a href="tel:+639774441450" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 977 444 1450</a>
+
+                  </div>
+                </div>
+              </li>
+              <li className="flex flex-col space-y-4">
+                <div className="flex items-center group">
+                  <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-white mr-4 flex-shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:-rotate-12">
                     <Phone size={18} />
                   </div>
                   <div className="flex flex-col">
                     {/* UPDATED: Phone Numbers from Navbar */}
-                    <a href="tel:+63 945 612 8186" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 995 545 8948</a>
-                    <a href="tel:+63 977 444 1450" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(+63) 954 423 0751</a>
+                    <a href="tel:046509-5368" className="text-white/60 font-medium hover:text-white transition-colors tracking-tight">(046) 509-5368</a>
+
+
                   </div>
                 </div>
               </li>
