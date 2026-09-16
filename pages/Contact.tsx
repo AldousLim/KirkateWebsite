@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
 
               <ul className="space-y-8">
                 {contactDetails.map((detail, index) => (
-                  <li key={index} className="flex items-start group">
+                  <li key={index} className="flex items-center group">
                     <div className="mt-1 mr-5 flex-shrink-0 w-12 h-12 bg-[#d9534f] rounded-2xl flex items-center justify-center shadow-lg shadow-red-200 transition-transform group-hover:scale-110">
                       {detail.icon}
                     </div>
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
                           href={detail.links ? detail.links[numIndex] : detail.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#d9534f] font-semibold leading-relaxed hover:text-red-700 transition-colors py-0.5"
+                          className="text-[#d9534f] font-semibold leading-relaxed hover:text-red-700 transition-colors "
                         >
                           {text}
                         </a>
