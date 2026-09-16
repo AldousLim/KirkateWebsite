@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Zap, Cog, Award, Users } from 'lucide-react';
 
@@ -23,6 +23,18 @@ import hero from '../assets/hero.png';
 import hero2 from '../assets/installation1.jpg';
 
 const Home: React.FC = () => {
+  // Track loading state for both hero images
+  const [loadedImages, setLoadedImages] = useState({
+    hero2: false,
+    hero: false,
+  });
+
+  const handleImageLoad = (imageName: 'hero2' | 'hero') => {
+    setLoadedImages((prev) => ({ ...prev, [imageName]: true }));
+  };
+
+  const areImagesReady = loadedImages.hero2 && loadedImages.hero;
+
   const clientLogos = [
     { name: "Billion", src: billion },
     { name: "Power 4 All", src: power4all },
@@ -46,28 +58,33 @@ const Home: React.FC = () => {
   return (
     <div className="w-full pt-16">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-brand">
         <div className="absolute inset-0 z-0">
           {/* Your original full-screen overlays */}
           <div className="absolute inset-0 bg-brand/60 mix-blend-multiply z-10"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-brand via-brand/80 to-transparent z-10"></div>
 
-          {/* Left portrait image (hero2) - full width for smooth transition */}
-          <div className="absolute top-0 left-0 w-full h-full">
-            <img
-              src={hero2}
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </div>
+          {/* Container that fades in only when BOTH images have loaded */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 ${areImagesReady ? 'opacity-100' : 'opacity-0'}`}>
+            {/* Left portrait image (hero2) - full width for smooth transition */}
+            <div className="absolute top-0 left-0 w-full h-full">
+              <img
+                src={hero2}
+                alt=""
+                onLoad={() => handleImageLoad('hero2')}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-          {/* Right portrait image (hero) */}
-          <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full">
-            <img
-              src={hero}
-              alt=""
-              className="w-full h-full object-cover"
-            />
+            {/* Right portrait image (hero) */}
+            <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full">
+              <img
+                src={hero}
+                alt=""
+                onLoad={() => handleImageLoad('hero')}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full">
